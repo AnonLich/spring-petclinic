@@ -18,6 +18,7 @@ package org.springframework.samples.petclinic.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 /**
  * Simple JavaBean domain object representing an person.
@@ -31,6 +32,7 @@ public class Person extends BaseEntity {
 	@NotBlank
 	private String firstName;
 
+	@Size(min = 2, max = 5, message = "Last name must be between 2 and 5 characters long")
 	@Column(name = "last_name")
 	@NotBlank
 	private String lastName;
